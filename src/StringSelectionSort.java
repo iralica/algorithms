@@ -1,6 +1,6 @@
 public class StringSelectionSort {
     public static void main(String[] args) {
-        String[] array = {"Lita", "Ann", "Go", "Soo", "Done", "Pool", "Bubble", "Moon", "Keep", "Woody", "Tool"};
+        String[] array = {"Lit", "Ann", "Go", "Soo", "Done", "Pool", "Bubble", "Moon", "Keep", "Woody", "Tool"};
 
         for (int j = 0; j < array.length - 1; j++) {
 
