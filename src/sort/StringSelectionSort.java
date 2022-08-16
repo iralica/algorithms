@@ -1,3 +1,5 @@
+package sort;
+
 public class StringSelectionSort {
     public static void main(String[] args) {
         String[] array = {"Lit", "Ann", "Go", "Soo", "Done", "Pool", "Bubble", "Moon", "Keep", "Woody", "Tool"};
