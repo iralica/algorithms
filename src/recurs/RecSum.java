@@ -1,5 +1,8 @@
 package recurs;
 
+//Дан массив, вычислить рекурсивно сумму всех элементов этого массива.
+// Итоговую сумму вывести в консоль.
+
 public class RecSum {
     public static void main(String[] args) {
         int[] ar = new int[]{2, 4, 8, 10, 12};
