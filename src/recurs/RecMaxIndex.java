@@ -1,4 +1,6 @@
 package recurs;
+//Дан массив, написать рекурсивный метод нахождения
+//максимального элемента в этом массиве.Максимальное число вывести в консоль.
 
 public class RecMaxIndex {
     public static void main(String[] args) {
