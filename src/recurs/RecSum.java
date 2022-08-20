@@ -5,20 +5,22 @@ package recurs;
 
 public class RecSum {
     public static void main(String[] args) {
-        int[] ar = new int[]{2, 4, 8, 10, 12};
+
+        int[] ar = new int[]{2, 4, 8, 10, 12, 30};
         int[] ar1 = new int[]{12};
 
-        System.out.println("Sum Of Array is: " + sumAr(ar, 0, ar.length));
-        System.out.println("Sum Of Array is: " + sumAr(ar1, 0, ar1.length));
+        RecSum recsum = new RecSum();
+        int sumAr = recsum.sumAr(ar, ar.length);
+        int sumAr1 = recsum.sumAr(ar1, ar1.length);
+        System.out.println("Sum Of Array is: " + sumAr);
+        System.out.println("Sum Of Array is: " + sumAr1);
+        System.out.println(ar.length);
     }
 
-    private static int sumAr(int[] ar, int firstIndex, int lastIndex) {
-
-        if (firstIndex == lastIndex - 1) {
-            return ar[firstIndex];
-        } else {
-            int middle = (firstIndex + lastIndex) / 2;
-            return sumAr(ar, firstIndex, middle) + sumAr(ar, middle, lastIndex);
+    private int sumAr(int[] ar, int index) {
+        if(index<=0){
+            return 0;
         }
+        return (ar[index-1] + sumAr(ar,index-1));
     }
 }

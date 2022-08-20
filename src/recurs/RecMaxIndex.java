@@ -11,7 +11,7 @@ public class RecMaxIndex {
     }
 
     public static int arMax(int[] ar, int i) {
-        if (i == 1)
+        if (i == 0)
             return ar[0];
         return Math.max(ar[i-1], arMax(ar,i-1));
     }
