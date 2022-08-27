@@ -18,11 +18,10 @@ public class Pow1 {
     private int powerRec(int x, int n) // recursion
     {
         if (n == 0) // любое число в 0 степени = 1
-            return 1;
-        else if (n % 2 == 0) // если n четное
-            return powerRec(x, n / 2) * powerRec(x, n / 2);
-        else
-            return x * powerRec(x, n / 2) * powerRec(x, n / 2);
+        {return 1;}
+        if (n == 1)
+        {return x;}
+            return x * powerRec(x, n-1);
     }
 
     private int powerDC(int x, int n) // dc
