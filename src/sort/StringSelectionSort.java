@@ -18,6 +18,5 @@ public class StringSelectionSort {
         System.out.println("List of students, group N2363:");
         for (int i = 0; i < array.length; i++)
             System.out.println((i + 1) + " " + array[i]);
-
     }
 }
