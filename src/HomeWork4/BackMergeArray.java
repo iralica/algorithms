@@ -2,6 +2,9 @@ package HomeWork4;
 
 import java.util.Arrays;
 
+//Повторить алгоритм сортировки слиянием,
+// результатом должен стать целочисленный массив отсортированный в порядке убывания.
+
 public class BackMergeArray {
     public static void main(String[] args) {
         int[] arrOne = {100, 112, 256, 349, 770};
