@@ -13,6 +13,8 @@ public class TwoPointers {
         int kPositionElement = getKPositionElement(mergeArray(arrOne, arrTwo), k);
         System.out.println("Element on k position = " + kPositionElement);
         System.out.println(merge[k-1]); // берем из соединенного массива элемент по индексу
+        int [] merge1 = new int [arrOne.length+arrTwo.length];
+        System.out.println(mergeArrayTwo(arrOne, arrTwo,merge1));
     }
 
     // слияние массивов, сложность алгоритма O(n)
@@ -46,6 +48,25 @@ public class TwoPointers {
             }
         }
         return result;
+    }
+
+    private static void mergeArrayTwo(int[] one, int[] two, int [] arr){
+        int indexOne = 0;
+        int indexTwo = 0;
+        int i =0; // счетчик вместо i в for
+        while (indexOne < one.length && indexTwo < two.length){
+            if (one[indexOne] < two[indexTwo]) {
+                arr[i++] = one[indexOne++];
+            } else {
+                arr[i++] = two[indexTwo++];
+            }
+        while (indexOne < one.length){
+            arr[i++] = one[indexOne++];
+        }
+        }
+        while (indexTwo < two.length){
+            arr[i++] = two[indexTwo++];
+        }
     }
     // подсчет индекса,
     private static int mergeArray(int[] one, int[] two, int k) { // возвращает число
