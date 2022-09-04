@@ -14,7 +14,8 @@ public class TwoPointers {
         System.out.println("Element on k position = " + kPositionElement);
         System.out.println(merge[k-1]); // берем из соединенного массива элемент по индексу
         int [] merge1 = new int [arrOne.length+arrTwo.length];
-        System.out.println(mergeArrayTwo(arrOne, arrTwo,merge1));
+        mergeArrayTwo(arrOne,arrTwo,merge1);
+        System.out.println(Arrays.toString(merge1));
     }
 
     // слияние массивов, сложность алгоритма O(n)
