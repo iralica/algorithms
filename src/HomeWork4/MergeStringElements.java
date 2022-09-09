@@ -19,7 +19,7 @@ public class MergeStringElements {
         int indexOne = 0;
         int indexTwo = 1;
 
-        for (int i = 0; i < result.length(); i++) {
+        for (int i = 0; i < (one.length() + two.length()); i++) {
             if (indexOne < one.length() && indexTwo < two.length()) {
              char charOne = one.charAt(i);
              char charTwo = two.charAt(i);
