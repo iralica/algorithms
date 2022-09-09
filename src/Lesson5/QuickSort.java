@@ -24,8 +24,13 @@ public class QuickSort {
 
     private static int getIndexPivot(int [] arr, int start, int end){
         int pivot = arr[end];
+        int indexPivot = start;
         for (int i = start; i < end; i++) {
-
-        }
+             if (arr[i] <= pivot){
+                 int temp = arr[indexPivot];
+                 arr[indexPivot] = arr[i];
+                 arr[i] = temp;
+                 indexPivot++;
+             }
     }
 }
