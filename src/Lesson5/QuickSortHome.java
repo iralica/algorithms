@@ -27,18 +27,23 @@ public class QuickSortHome {
         }
     }
     private static int getIndexPivot(int [] arr, int start, int end){
-        Random rand = new Random();
-        int median = rand.nextInt(end-start)+start;// назначается рандомное число
-        int indexPivot = start;
-        swap(arr, median,end);
-        int pivot = arr[end];
-        for (int i = start; i < end; i++) {
-          if(arr[i] <= pivot){
-             swap(arr, indexPivot, i);
-             indexPivot++;
-          }
+        int mid = start + (end - start);
+        int pivot = arr[mid];
+        int indexPivot = mid;
+        while (start < end) {
+            while (start < end && arr[start] <= pivot) {
+                start++;
+            }
+            while (start < end && arr[end] >= pivot) {
+                end--;
+            }
+            if (start < end) {
+                swap(arr, indexPivot, end);
+            }
+            }
+        if (arr[start] < pivot) {
+            swap(arr, indexPivot, start);
         }
-        swap(arr, indexPivot, end);
         return indexPivot;
     }
    private static void swap(int[] array, int first, int second) {
