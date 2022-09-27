@@ -26,26 +26,38 @@ public class QuickSortHome {
             quickSort(arr, indexPivot + 1, end);
         }
     }
-    private static int getIndexPivot(int [] arr, int start, int end){
+    private static int getIndexPivot(int [] arr, int start, int end) {
         int mid = start + (end - start);
         int pivot = arr[mid];
         int indexPivot = mid;
         while (start < end) {
-            while (start < end && arr[start] <= pivot) {
+            while (arr[start] < pivot) {
                 start++;
             }
-            while (start < end && arr[end] >= pivot) {
+            while (arr[end] > pivot) {
                 end--;
             }
             if (start < end) {
-                swap(arr, indexPivot, end);
-            }
-            }
-        if (arr[start] < pivot) {
+                swap(arr, start, end);
+                if (end == indexPivot) {
+                    indexPivot = start;
+                } else if (start == indexPivot) {
+                    indexPivot = end;
+                }
+            start++;
+            end++;
+        }
+    }
+        if (start < indexPivot && arr[start] > arr[indexPivot]) {
             swap(arr, indexPivot, start);
+            indexPivot = start;
+        } else if (end > indexPivot && arr[end] < arr[indexPivot]) {
+            swap(arr, indexPivot, end);
+            indexPivot = end;
         }
         return indexPivot;
     }
+
    private static void swap(int[] array, int first, int second) {
         int temp = array[first];
         array[first] = array[second];
