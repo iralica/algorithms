@@ -3,40 +3,35 @@ package Lesson8;
 public class StackTaskTwo<Intejer> {
     public static void main(String[] args) {
      StackTaskTwo s = new StackTaskTwo();
-     int [] arr = new int[]{18,19,29,15,16};
-     System.out.println(arr);
-     s.getMin();
-     s.pop();
-     s.getMin();
-     s.pop();
+        StackTaskTwo s1 = new StackTaskTwo();
+     s.puch(16);
+     s.puch(15);
+     s.puch(29);
+     s.puch(19);
+     s.puch(18);
+     System.out.println(s);
+     s1.pop();
+     System.out.println(s1.getMin());
+
     }
     private Stack<Integer> helper = new Stack();
-    private int top = -1;
-    private int minValue;
-    private static int STACK_SIZE = 1000;
-    private int[] arr = new int[STACK_SIZE];
-    public boolean empty(){
-        return top < 0;
-    }
-    public void puch(int top){
-        if(helper.empty()){
-            helper.puch(top);
-            System.out.println("added to stack " + top);
-        } else {
-            int min = Math.min(helper.peek(), top);
-            helper.puch(min);
-        }
-    }
+    private Stack<Integer> minEl = new Stack();
 
-    public int pop(){
-        if (top < 0) {
-            System.out.println("Stack is empty");
-            return 0;
+    public void puch(int top){
+        int min = top;
+
+        if(!minEl.empty() && min > minEl.peek()) {
+            min = minEl.peek();
         }
-        return top;
+        helper.puch(top);
+        minEl.puch(min);
+    }
+    public void pop(){
+        helper.pop();
+        minEl.pop();
     }
     public int getMin(){
-       return minValue;
+       return minEl.peek();
     }
 
 

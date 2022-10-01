@@ -26,11 +26,10 @@ public class ReverceStack {
     }
     static void reverse(Stack helper) {
         if (helper.empty()) {return;
-        } else {
-
-            int x = helper.pop();
-            reverse(helper);
-            insert_at_bottom(helper, x);
         }
-    }
+        int x = helper.pop();
+        reverse(helper);
+        insert_at_bottom(helper, x);
+        }
+
 }
