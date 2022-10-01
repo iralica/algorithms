@@ -3,7 +3,7 @@ package Lesson7DP;
 // Первые два элемента последовательности, нужные для затравки — ноль и единица: F 0 = 0 , F 1 = 1
 public class Fib {
     public static void main(String[] args) {
-        int n = 5;
+        int n = 10;
         System.out.println("Rec" + rec(n));
         int [] arr = new int[n+1];
         for (int i = 2; i <= n; i++) {
@@ -11,8 +11,40 @@ public class Fib {
         }
         System.out.println("Mem" + fibinaciDPMemo(n, arr));
 
-        System.out.println("Tab" + fibanaciTab(5));
+        System.out.println("Tab" + fibinaciTab(5));
 
+        // рекурсия
+        long start = System.currentTimeMillis();
+        rec(n);
+        long time = System.currentTimeMillis() - start;
+        System.out.println("Standard recursion time: " + time);
+        // мемо
+        start = System.currentTimeMillis();
+        fibinaciDPMemo(n, arr);
+        time = System.currentTimeMillis() - start;
+        System.out.println("Memoization time: " + time);
+        // таб
+        start = System.currentTimeMillis();
+        fibinaciTab(n);
+        time = System.currentTimeMillis() - start;
+        System.out.println("Time without recursion: " + time);
+
+
+        /* 10
+           Rec55
+           Mem10
+           Tab5
+            Standard recursion time: 0
+           Memoization time: 0
+           Time without recursion: 0
+
+         50
+           Rec-298632863
+           Mem50
+           Tab5
+        Standard recursion time: 39925
+        Memoization time: 0
+        Time without recursion: 0 */
 
     }
 
@@ -34,7 +66,7 @@ public class Fib {
             return arr[n];
      }
 
-     private static int fibanaciTab (int n){
+     private static int fibinaciTab (int n){
         int arr[] = new int [n+1];
         arr [0] = 0;
         arr [1] = 1;

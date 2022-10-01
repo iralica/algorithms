@@ -1,23 +1,23 @@
 package Lesson8;
 
-public class StackTaskTwo {
+public class StackTaskTwo<Intejer> {
     public static void main(String[] args) {
      StackTaskTwo s = new StackTaskTwo();
      int [] arr = new int[]{18,19,29,15,16};
      System.out.println(arr);
      s.getMin();
      s.pop();
-     System.out.println("\n ___________________");
-     s.printStack();
-     System.out.println("\n ___________________");
      s.getMin();
-
+     s.pop();
     }
     private Stack<Integer> helper = new Stack();
     private int top = -1;
+    private int minValue;
     private static int STACK_SIZE = 1000;
     private int[] arr = new int[STACK_SIZE];
-
+    public boolean empty(){
+        return top < 0;
+    }
     public void puch(int top){
         if(helper.empty()){
             helper.puch(top);
@@ -33,16 +33,10 @@ public class StackTaskTwo {
             System.out.println("Stack is empty");
             return 0;
         }
-        return arr[top--];
+        return top;
     }
     public int getMin(){
-        puch(arr[top]);
-        return helper.peek();
-    }
-    public void printStack(){
-        for (int i = top; i >=0 ; i--) {
-            System.out.print(" " + arr[i]);
-        }
+       return minValue;
     }
 
 
