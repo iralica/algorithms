@@ -4,7 +4,7 @@ public class Node {
     private int data;
     private Node next;
 
-    public Node(int data) {
+    public Node(int data, Object o) {
         this.data = data;
         this.next = next;
     }
@@ -21,7 +21,7 @@ public class Node {
         return next;
     }
 
-    public void setNext(Node next) {
+    public void setNext() {
         this.next = next;
     }
 }

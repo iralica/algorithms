@@ -3,15 +3,14 @@ package Lesson8;
 public class StackTaskTwo<Intejer> {
     public static void main(String[] args) {
      StackTaskTwo s = new StackTaskTwo();
-        StackTaskTwo s1 = new StackTaskTwo();
      s.puch(16);
      s.puch(15);
      s.puch(29);
      s.puch(19);
      s.puch(18);
      System.out.println(s);
-     s1.pop();
-     System.out.println(s1.getMin());
+     s.pop();
+     System.out.println(s.getMin());
 
     }
     private Stack<Integer> helper = new Stack();
