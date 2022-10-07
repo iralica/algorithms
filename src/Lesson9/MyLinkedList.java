@@ -15,19 +15,18 @@ public class MyLinkedList {
 
     }
 
-    public void pushToTail (int data){
+    public void pushToTail(int data) {
         Node node = new Node(data);
-
-        if(head == null){
+        if (head == null) {
             head = node;
             size++;
             return;
         }
-        Node curr = head;
-        while (curr.getNext() != null){
-            curr = curr.getNext();
+        Node current = head;
+        while (current.getNext() != null) {
+            current = current.getNext();
         }
-        curr.setNext();
+        current.setNext(node);
     }
     public Object get(int index)
     {
@@ -45,24 +44,22 @@ public class MyLinkedList {
         }
         return curr;
     }
-    public void pushToIndex(int index, int item) {
-        Node temp = head;
+    public void pushToIndex(int index, int data){
+        Node node = head;
         Node prev = null;
-        int i = 0;
-        for (Node ptr = head; ptr != null; ptr = ptr.nextNode) {
-            prev = temp;
-            if (temp.nextNode != null) {
-                temp = temp.nextNode;
-            }
-            if (index == i) {
-                Node newItem = new Node(0);
-                prev.nextNode = newItem;
-                if (temp.nextNode != null) {
-                    newItem.nextNode = temp;
-                }
-            }
-            i++;
+        while (node != null && index > 0) {
+            index--;
+            prev = node;
+            node = node.getNext();
         }
+        Node nodeNew = new Node(data);
+        nodeNew.setNext(node);
+        if(prev == null){
+            head = nodeNew;
+            return;
+        }
+        prev.setNext(nodeNew);
+
     }
     public boolean removeFirst(){
         if(head == null){

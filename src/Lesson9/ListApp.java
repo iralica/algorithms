@@ -11,10 +11,11 @@ public class ListApp {
         Node head = new Node(0);
 
         ListApp listApp = new ListApp();
-        listApp.print(head);
+        //listApp.print(head);
         int value = listApp.getNode(head, 3);
         MyLinkedList myLinkedList = new MyLinkedList();
-        myLinkedList.pushToTail(20);
+        myLinkedList.pushToTail(1);
+        System.out.println(myLinkedList);
         myLinkedList.pushToIndex(1, 1);
         myLinkedList.pushToIndex(2, 8);
         myLinkedList.pushToIndex(3, 10);
@@ -25,11 +26,18 @@ public class ListApp {
         System.out.println("The element is: " + myLinkedList.get(2));
     }
 
-    private void print(Node node){
-        while (node!= null){
-            System.out.println(node.getData() + " ");
+    private void print(Node node) {
+        System.out.print("[");
+        while (node != null) {
+            if (node.getNext() == null) {
+                System.out.print(node.getData() + "]");
+                ;
+            } else {
+                System.out.print(node.getData() + ", ");
+            }
             node = node.getNext();
         }
+        System.out.println();
     }
 
     private int getNode(Node node, int number){
