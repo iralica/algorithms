@@ -1,16 +1,22 @@
 package Lesson9;
+// Home
+//  pushToIndex(int index, int data)
+//  remove(int index)
+//  get(int index)
 
 public class MyLinkedList {
     private Node head;
     private int size;
 
+
     public MyLinkedList() {
         this.head = head = null;
         this.size = size = 0;
+
     }
 
     public void pushToTail (int data){
-        Node node = new Node(data, null);
+        Node node = new Node(data);
 
         if(head == null){
             head = node;
@@ -23,38 +29,41 @@ public class MyLinkedList {
         }
         curr.setNext();
     }
-
-   /*public void pushToIndex(int index, int data) {
-        Node node = new Node(data, null);
-        if (head == null && index != 0) {
-            return;
-        }
-        head = node;
-
-     if (head != null && index == 0) {
-         node.setNext() = head;
-         head = node;
-         return;
-        }
-        Node current = head;
-        Node previous = null;
-
-        int i = 0;
-
-        while (i < index) {
-            previous = current;
-            current = node.getNext();
-
-            if (current == null) {
-                break;
+    public Object get(int index)
+    {
+        if (index < 0)
+            return null;
+        Node curr = null;
+        if (head != null) {
+            curr = head.getNext();
+            for (int i = 0; i < index; i++) {
+                if (curr.getNext() == null)
+                    return null;
+                curr = curr.getNext();
             }
-
+            return curr.getData();
+        }
+        return curr;
+    }
+    public void pushToIndex(int index, int item) {
+        Node temp = head;
+        Node prev = null;
+        int i = 0;
+        for (Node ptr = head; ptr != null; ptr = ptr.nextNode) {
+            prev = temp;
+            if (temp.nextNode != null) {
+                temp = temp.nextNode;
+            }
+            if (index == i) {
+                Node newItem = new Node(0);
+                prev.nextNode = newItem;
+                if (temp.nextNode != null) {
+                    newItem.nextNode = temp;
+                }
+            }
             i++;
         }
-        node.getNext() = current;
-        previous.getNext() = node;
-    }*/
-
+    }
     public boolean removeFirst(){
         if(head == null){
             return false;
@@ -103,11 +112,31 @@ public class MyLinkedList {
             curr = curr.getNext();
         }
     }
-    // Home
-    //  pushToIndex(int index, int data)
-    //  remove(int index)
-    //  get(int index)
 
-
-
+    public int size()
+    {
+        int size = 0;
+        Node CurrNode = head;
+        while(CurrNode.getNext() != null)
+        {
+            CurrNode = CurrNode.getNext();
+            size++;
+        }
+        return size;
+    }
+    private Node getToIndex(int index) {
+        if (index < 0 || size <= index) {
+            throw new IndexOutOfBoundsException("is empty");
+        }
+        if (index == 0) {
+            return head;
+        }
+        Node node = head.getNext();
+        int i = 1;
+        while (i < index) {
+            node = node.getNext();
+            ++i;
+        }
+        return node;
+    }
 }

@@ -1,10 +1,12 @@
 package Lesson9;
 
 public class Node {
+    public Node nextNode;
+    public boolean value;
     private int data;
-    private Node next;
+    Node next;
 
-    public Node(int data, Object o) {
+    public Node(int data) {
         this.data = data;
         this.next = next;
     }
@@ -24,4 +26,5 @@ public class Node {
     public void setNext() {
         this.next = next;
     }
+
 }

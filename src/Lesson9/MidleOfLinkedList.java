@@ -2,12 +2,12 @@ package Lesson9;
 
 public class MidleOfLinkedList {
     public static void main(String[] args) {
-        Node node5 = new Node(5, null);
-        Node node4 = new Node(4, node5);
-        Node node3 = new Node(3, node4);
-        Node node2 = new Node(2, node3);
+        Node node5 = new Node(5);
+        Node node4 = new Node(4);
+        Node node3 = new Node(3);
+        Node node2 = new Node(2);
 
-        Node head = new Node(0, node2);
+        Node head = new Node(0);
 
         MidleOfLinkedList midleOfLinkedList = new MidleOfLinkedList();
         System.out.println(midleOfLinkedList.getMinValue(head));

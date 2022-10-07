@@ -14,8 +14,6 @@ public class AppDA {
         System.out.println(Arrays.asList(da));
         da.remove();
         da.remove();
-        da.remove();
-        da.remove();
         System.out.println("After remove all" + da);
     }
 }
