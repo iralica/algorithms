@@ -15,11 +15,14 @@ public class ListApp {
         int value = listApp.getNode(head, 3);
         MyLinkedList myLinkedList = new MyLinkedList();
         myLinkedList.pushToTail(1);
+        myLinkedList.pushToTail(15);
+        myLinkedList.pushToTail(20);
         System.out.println(myLinkedList);
-        myLinkedList.pushToIndex(1, 1);
+        myLinkedList.pushToIndex(0, 1);
         myLinkedList.pushToIndex(2, 8);
         myLinkedList.pushToIndex(3, 10);
         myLinkedList.pushToIndex(2, 6);
+        System.out.println(myLinkedList);
 
         myLinkedList.remove(0);
 

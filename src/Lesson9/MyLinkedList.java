@@ -59,7 +59,6 @@ public class MyLinkedList {
             return;
         }
         prev.setNext(nodeNew);
-
     }
     public boolean removeFirst(){
         if(head == null){
@@ -135,5 +134,21 @@ public class MyLinkedList {
             ++i;
         }
         return node;
+    }
+    @Override
+    public String toString()
+    {
+        StringBuilder b = new StringBuilder();
+        Node n = head;
+        b.append("[");
+        while (n != null)
+        {
+            b.append(n.getData());
+            n = n.getNext();
+            if(n != null)
+                b.append(", ");
+        }
+        b.append("]");
+        return b.toString();
     }
 }
