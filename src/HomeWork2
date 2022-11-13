@@ -1,0 +1,39 @@
+
+mysql> insert into student
+    -> values(6, 'Mila', 'May', 30),
+    -> (7, 'Nik', 'Nikov', 19),
+    -> (8, 'Bob', 'Coc', 22);
+Query OK, 3 rows affected (0.01 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> select * from student;
++----+------+---------+-----+
+| id | name | surname | age |
++----+------+---------+-----+
+|  1 | Alex | Surname |  25 |
+|  2 | Oleg | Sur     |  25 |
+|  3 | Ivan | Ivanov  |  18 |
+|  4 | Nax  | Nax     |  18 |
+|  5 | Maz  | Max     |  25 |
+|  6 | Mila | May     |  30 |
+|  7 | Nik  | Nikov   |  19 |
+|  8 | Bob  | Coc     |  22 |
++----+------+---------+-----+
+8 rows in set (0.00 sec)
+
+mysql> select
+    -> id, name
+    -> from student;
++----+------+
+| id | name |
++----+------+
+|  1 | Alex |
+|  2 | Oleg |
+|  3 | Ivan |
+|  4 | Nax  |
+|  5 | Maz  |
+|  6 | Mila |
+|  7 | Nik  |
+|  8 | Bob  |
++----+------+
+8 rows in set (0.00 sec)
