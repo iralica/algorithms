@@ -1,0 +1,32 @@
+
+mysql> create database library;
+Query OK, 1 row affected (0.02 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| library            |
+| mysql              |
+| performance_schema |
+| school             |
+| sys                |
++--------------------+
+6 rows in set (0.00 sec)
+
+mysql> create table reader(
+    -> id int not null,
+    -> name varchar(60),
+    -> surname varchar(60),
+    -> age int,
+    -> primary key(id));
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> create table book(
+    -> id int not null,
+    -> title varchar(150),
+    -> autor varchar(60),
+    -> year int,
+    -> primary key(id));
+Query OK, 0 rows affected (0.03 sec)
