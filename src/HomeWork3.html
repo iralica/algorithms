@@ -1,0 +1,75 @@
+В нашей системе уже есть таблица с пользователями (говорим про библиотечную систему созданную в первом дз). Добавить две дополнительных таблицы - таблица с работниками библиотеки, которые работают с пользователями, вторая - таблица работников библиотеки, которые не работают с пользователями. (каждая из этих таблиц должна иметь разный набор полей(часть полей может совпадать, такие как имя фамилия, возраст, но при этом они должны называться в каждой таблице по разному)).
+mysql> create table back_Workers(
+-> id int not null,
+-> b_name varchar (255),
+-> b_surname varchar (255),
+-> b_age int not null,
+-> primary key (id));
+Query OK, 0 rows affected (0.03 sec)
+mysql> create table front_workers(
+-> id int not null,
+-> f_name varchar (255),
+-> f_surname varchar (255),
+-> f_age int not null,
+-> primary key (id));
+Query OK, 0 rows affected (0.01 sec)
+1.Написать запрос (UNION) который выведет всех посетителей библиотеки(а, это все участники всех трех таблиц). Вывести в одной таблице имя фамилию и возраст посетителя, вывести поле, которое будет обозначать к какому типу работников или пользователей относится данный посетитель.
+mysql> select name, surname, age, "reader" as user from reader
+-> union all
+-> select f_name, f_surname, f_age, "f_worker" as user from front_workers
+-> union all
+-> select b_name, b_surname, b_age, "b_worker" as user from back_workers
+-> ;
++-------+---------+------+----------+
+| name  | surname | age  | user     |
++-------+---------+------+----------+
+| Ann   | Litsa   |   32 | reader   |
+| Anet  | Noza    |   29 | reader   |
+| Maria | Marpl   |   53 | f_worker |
+| Lena  | Volf    |   22 | f_worker |
+| Ivan  | Ivanov  |   29 | b_worker |
+| Ivana | Ivanova |   49 | b_worker |
++-------+---------+------+----------+
+6 rows in set (0.00 sec)
+
+Отобрать из таблицы , которая получилась в результате первого пункта, всех посетителей у которых :
+а) Возраст больше определенного значения(можно задать самим)
+mysql> select tab.name, tab.surname, tab.age from(select name, surname, age from reader) as tab
+-> where tab.age >30;
++------+---------+------+
+| name | surname | age  |
++------+---------+------+
+| Ann  | Litsa   |   32 |
++------+---------+------+
+1 row in set (0.00 sec)
+б)Фамилия содержит определенное вхождение символов.
+mysql> select tab.name, tab.surname, tab.age from(select name, surname, age from reader) as tab
+-> where surname like"%za%";
++------+---------+------+
+| name | surname | age  |
++------+---------+------+
+| Anet | Noza    |   29 |
++------+---------+------+
+1 row in set (0.01 sec)
+
+а и б , это отдельные запросы.
+
+3.Написать запрос в котором выбрать всех пользователей!, которые присутствуют в таблице, полученной в пункте 2а, и всех работников которые не работают с пользователями, которые присутствуют в таблице 2б.
+mysql> select tab.name, tab.surname, tab.age from(select name, surname, age from reader) as tab
+-> where surname like"%no%"
+-> union all
+-> select tab.name, tab.surname, tab.age from(select b_name, b_surname, b_age from back_workers) as tab
+-> where b_surname like"%no%";
+
+mysql> select tab.name, tab.surname, tab.age from(select name, surname, age from reader, back_workers) as tab
+-> where tab.surname like "%no%";
++------+---------+------+
+| name | surname | age  |
++------+---------+------+
+| Anet | Noza    |   29 |
+| Anet | Noza    |   29 |
++------+---------+------+
+2 rows in set (0.00 sec)
+Не получается
+
+
